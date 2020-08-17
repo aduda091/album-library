@@ -1,7 +1,5 @@
 @import './globals';
 
-
-
 @mixin sm {
     @media (min-width: #{$screen-sm-min}) {
         @content;

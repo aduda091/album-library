@@ -1,0 +1,41 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/colors';
+
+.search-container {
+
+    position: relative;
+
+    &::after {
+        background: url('../../assets/img/search.svg') no-repeat 100%;
+        content: '';
+        display: block;        
+        height: rem(15px);
+        pointer-events: none;
+        position: absolute;
+        right: rem(20px);
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem(15px);
+    }
+
+    input {
+        background-color: $white;
+        border-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        
+        padding: rem(12px) rem(20px) rem(12px) rem(23px);
+        width: 420px;
+
+        &:focus {
+            box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+            outline: rgba(0, 0, 0, 0.5);
+        }
+
+        &::placeholder {
+            color: $warm-grey;
+            font-family: rem(14px);
+            line-height: rem(16px);
+            letter-spacing: -0.51px;
+        }
+    }
+}
