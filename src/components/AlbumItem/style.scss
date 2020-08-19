@@ -1,0 +1,42 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/colors';
+
+.album-item {
+    background: $white;
+    margin-bottom: 0.625rem;
+    padding: 1.25rem;
+
+    .album-main-info {
+        display: flex;
+    }
+
+    .album-cover {
+        margin-right: 1.625rem;
+        width: 3.375rem;
+    }
+
+    .album-title {
+        color: $blackish;
+        font-size: 1.125rem;
+        font-weight: 500;
+        letter-spacing: -0.66px;
+        line-height: 1.33;
+    }
+
+    .album-artist {
+        color: $lightgrey;
+        font-size: 0.75rem;
+        letter-spacing: -0.44px;
+        text-transform: uppercase;
+    }
+
+    .year-info {
+        font-size: 0.875rem;
+    }
+    
+    .year-label {
+        color: $lightgrey;
+        font-size: 0.875rem;
+        letter-spacing: -0.51px;
+    }
+}
