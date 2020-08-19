@@ -1,7 +1,9 @@
+@import './assets/scss/colors';
 @import './assets/scss/globals';
 
 html,
 body {
+    background: $muted-white;
     box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
     font-size: $base-font-size;
