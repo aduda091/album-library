@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import AlbumContainer from '../../components/AlbumContainer';
 
 import axios from '../../axios';
-import * as api from '../../constants/api';
-
-const DEFAULT_LIMIT = 10;
+import { resolveApiUrl } from '../../utils';
 
 function Home() {
     const [albums, setAlbums] = useState([]);
-
-    // TODO: extract this to util file
-    const resolveApiUrl = () => {
-        // TODO: read limit from route param
-        const limit = DEFAULT_LIMIT;
-
-        // TODO: check if search is active to append query
-        return `${api.ALBUMS}&_limit=${limit}`;
-    };
+    const urlParams = useLocation().search;
 
     useEffect(() => {
-        const url = resolveApiUrl();
+        const url = resolveApiUrl(urlParams);
         axios
             .get(url)
             .then((response) => {
@@ -30,7 +21,7 @@ function Home() {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [urlParams]);
 
     return (
         <div>
