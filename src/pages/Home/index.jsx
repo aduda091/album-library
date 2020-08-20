@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import AlbumContainer from '../../components/AlbumContainer';
 
 import axios from '../../axios';
-import * as api from '../../constants/api';
+import { resolveApiUrl } from '../../utils';
 
-const DEFAULT_LIMIT = 10;
+import './style.scss';
 
 function Home() {
+    const urlParams = useLocation().search;
     const [albums, setAlbums] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
-    // TODO: extract this to util file
-    const resolveApiUrl = () => {
-        // TODO: read limit from route param
-        const limit = DEFAULT_LIMIT;
-
-        // TODO: check if search is active to append query
-        return `${api.ALBUMS}&_limit=${limit}`;
+    const handleSearchChange = term => {
+        setSearchTerm(term);
     };
 
     useEffect(() => {
-        const url = resolveApiUrl();
+        const url = resolveApiUrl(urlParams, searchTerm);
         axios
             .get(url)
             .then((response) => {
@@ -30,12 +28,18 @@ function Home() {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [urlParams, searchTerm]);
 
     return (
         <div>
-            <Header title="Album list" hasSearch />
-            {albums.length ? <AlbumContainer albums={albums} /> : null}
+            <Header title="Album list" hasSearch onSearchChange={handleSearchChange} />
+            {albums.length ? (
+                <AlbumContainer albums={albums} />
+            ) : (
+                <div className="no-results">
+                    No results found for <span className="search-term">{searchTerm}</span>{' '}
+                </div>
+            )}
         </div>
     );
 }

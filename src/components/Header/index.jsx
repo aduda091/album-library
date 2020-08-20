@@ -10,7 +10,7 @@ function Header(props) {
         <div className="header">
             <div className="inner-container">
                 <h1 className="page-title">{props.title}</h1>
-                { props.hasSearch ? <Search /> : null}
+                { props.hasSearch ? <Search onSearchChange={props.onSearchChange} /> : null}
             </div>
         </div>
     );
@@ -18,7 +18,8 @@ function Header(props) {
 
 Header.propTypes = {
     title: PropTypes.string.isRequired,
-    hasSearch: PropTypes.bool
+    hasSearch: PropTypes.bool,
+    onSearchChange: PropTypes.func
 };
 
 export default Header;
