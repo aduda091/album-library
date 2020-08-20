@@ -23,14 +23,25 @@
     }
 
     .album-main-info {
-        display: flex;
-        flex-basis: 50%;
+        text-align: center;
+
+        @include md {
+            display: flex;
+            flex-basis: 50%;
+            text-align: left;
+        }
+        
     }
 
     .album-cover {
-        margin-right: 1.625rem;
-        height: 100%;
-        width: 3.375rem;
+        max-width: 100%;
+
+        @include md {
+            align-self: center;
+            height: 100%;
+            margin-right: 1.625rem;
+            width: 3.375rem;
+        }
     }
 
     .album-title {
