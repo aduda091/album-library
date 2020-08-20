@@ -1,0 +1,14 @@
+@import '../../assets/scss/mixins';
+
+.no-results {
+    margin: 3.25rem auto;
+    width: 75%;
+
+    @include md {
+        max-width: 1080px;
+    }
+}
+
+.search-term {
+    font-weight: bold;
+}
