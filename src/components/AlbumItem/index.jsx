@@ -21,6 +21,14 @@ function AlbumItem() {
                 <span className="year-label">Released: </span>
                 <span className="year-value">2005</span>
             </div>
+
+            <div className="price">
+                $12.99
+            </div>
+
+            <div className="favorite-container">
+                <button className="add-favorite">Mark as favorite</button>
+            </div>
         </div>
     );
 }

@@ -2,16 +2,34 @@
 @import '../../assets/scss/colors';
 
 .album-item {
+    align-items: center;
     background: $white;
+    box-shadow: 0 1px 3px 0 $whiteish;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 0.625rem;
-    padding: 1.25rem;
+    padding: 1.125rem 1.25rem;
+
+    > div {
+        margin-bottom: 1rem;
+    }
+
+    @include md {
+        flex-direction: row;
+
+        > div {
+            margin-bottom: 0;
+        }
+    }
 
     .album-main-info {
         display: flex;
+        flex-basis: 50%;
     }
 
     .album-cover {
         margin-right: 1.625rem;
+        height: 100%;
         width: 3.375rem;
     }
 
@@ -20,6 +38,7 @@
         font-size: 1.125rem;
         font-weight: 500;
         letter-spacing: -0.66px;
+        margin-top: 0.25rem;
         line-height: 1.33;
     }
 
@@ -27,16 +46,49 @@
         color: $lightgrey;
         font-size: 0.75rem;
         letter-spacing: -0.44px;
+        margin-top: 0.375rem;
         text-transform: uppercase;
     }
 
     .year-info {
+        display: inline-block;
         font-size: 0.875rem;
+        flex-basis: 16.6%;
     }
     
     .year-label {
         color: $lightgrey;
         font-size: 0.875rem;
         letter-spacing: -0.51px;
+    }
+
+    .price {
+        color: $black;
+        font-size: 0.875rem;
+        letter-spacing: -0.51px;
+        flex-basis: 16.6%;
+    }
+
+    .favorite-container {
+        text-align: right;
+        flex-basis: 16.6%;
+
+        .add-favorite {
+            background-color: $aqua;
+            border: none;
+            border-radius: 3px;
+            color: $white;
+            cursor: pointer;
+            font-family:"Work Sans", sans-serif;
+            font-size: 0.625rem;
+            font-weight: bold;
+            padding: 0.438rem 0.875rem;
+            text-transform: uppercase;
+
+            &:hover,
+            &:focus {
+                background-color: $turquoise-blue;
+            }
+        }
     }
 }
