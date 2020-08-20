@@ -4,10 +4,10 @@ const DEFAULT_LIMIT = 10;
 
 const resolveApiUrl = (urlParams, searchTerm) => {
     const searchParams = new URLSearchParams(urlParams);
-    const limit = searchParams.get('limit') || DEFAULT_LIMIT;
+    const limit = parseInt(searchParams.get('limit')) || DEFAULT_LIMIT;
 
-    const query = searchTerm.length ? `&q=${searchTerm}` : null;
-    
+    const query = searchTerm.length ? `&q=${searchTerm}` : '';
+
     return `${api.ALBUMS}&_limit=${limit}${query}`;
 };
 
