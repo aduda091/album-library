@@ -8,11 +8,16 @@ import axios from '../../axios';
 import { resolveApiUrl } from '../../utils';
 
 function Home() {
-    const [albums, setAlbums] = useState([]);
     const urlParams = useLocation().search;
+    const [albums, setAlbums] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearchChange = term => {
+        setSearchTerm(term);
+    }
 
     useEffect(() => {
-        const url = resolveApiUrl(urlParams);
+        const url = resolveApiUrl(urlParams, searchTerm);
         axios
             .get(url)
             .then((response) => {
@@ -21,11 +26,11 @@ function Home() {
             .catch((err) => {
                 console.log(err);
             });
-    }, [urlParams]);
+    }, [urlParams, searchTerm]);
 
     return (
         <div>
-            <Header title="Album list" hasSearch />
+            <Header title="Album list" hasSearch onSearchChange={handleSearchChange} />
             {albums.length ? <AlbumContainer albums={albums} /> : null}
         </div>
     );
