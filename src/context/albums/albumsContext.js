@@ -1,5 +1,8 @@
 import React, { createContext, useState } from 'react';
 
+import axios from '../../axios';
+import * as api from '../../constants/api';
+
 export const AlbumsContext = createContext({
     albums: [],
     searchTerm: '',
@@ -10,18 +13,19 @@ export default (props) => {
     const [albums, setAlbums] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
-    const toggleFavorite = albumId => {
-        setAlbums(currentAlbums => {
-            const updatedAlbums = [...currentAlbums];
-            // TODO: API request for this
-            const albumIndex = currentAlbums.findIndex(album => album.id === albumId);
-            const newStatus = !currentAlbums[albumIndex].favorite;
-            updatedAlbums[albumIndex] = {
-                ...currentAlbums[albumIndex],
-                favorite: newStatus
-            }
-            return updatedAlbums;
+    const toggleFavorite = async albumId => {
+        const updatedAlbums = [...albums];
+        const albumIndex = albums.findIndex(album => album.id === albumId);
+        const newFavoriteStatus = !albums[albumIndex].favorite;
+
+        const url = `${api.FAVORITE}/${albumId}`;
+        axios.patch(url, { favorite: newFavoriteStatus }).then(res => {
+            updatedAlbums[albumIndex].favorite = res.data.favorite;
+            setAlbums(updatedAlbums)
+        }).catch(err => {
+            console.error(err);
         });
+            
     };
 
     return (
