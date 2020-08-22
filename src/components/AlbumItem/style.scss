@@ -22,6 +22,10 @@
         }
     }
 
+    @include xl {
+        padding-right: 0;
+    }
+
     .album-main-info {
         text-align: center;
 
@@ -86,25 +90,35 @@
     }
 
     .favorite-container {
-        text-align: right;
+        text-align: center;
         flex-basis: 16.6%;
 
-        .add-favorite {
-            background-color: $aqua;
+        button {
             border: none;
-            border-radius: 3px;
-            color: $white;
             cursor: pointer;
             font-family:"Work Sans", sans-serif;
             font-size: 0.625rem;
-            font-weight: bold;
             padding: 0.438rem 0.875rem;
+        }
+
+        .add-favorite {
+            background-color: $aqua;
+            border-radius: 3px;
+            color: $white;
+            font-weight: bold;
             text-transform: uppercase;
 
             &:hover,
             &:focus {
                 background-color: $turquoise-blue;
             }
+        }
+
+        .remove-favorite {
+            background: none;
+            color: $aqua;
+            text-align: center;
+            text-decoration: underline;
         }
     }
 }
