@@ -12,7 +12,7 @@ function AlbumItem(props) {
         return new Date(props.releaseDate).getFullYear();
     };
 
-    const resolveFavoriteCta = props.isFavorite ? (
+    const resolveFavoriteCta = props.favorite ? (
         <button className="remove-favorite" onClick={() => toggleFavorite(props.id)}>
             Remove favorite
         </button>
@@ -50,7 +50,7 @@ AlbumItem.propTypes = {
     price: PropTypes.string,
     imageUrl: PropTypes.string,
     releaseDate: PropTypes.string,
-    isFavorite: PropTypes.bool,
+    favorite: PropTypes.bool,
     artistId: PropTypes.number,
     artistName: PropTypes.string
 };

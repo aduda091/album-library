@@ -9,13 +9,7 @@ function AlbumContainer(props) {
         return props.albums.map((album) => (
             <AlbumItem
                 key={album.id}
-                id={album.id}
-                title={album.title}
-                price={album.price}
-                imageUrl={album.imageUrl}
-                releaseDate={album.releaseDate}
-                isFavorite={album.favorite}
-                artistId={album.artistId}
+                {...album}
                 artistName={album.artist.title}
             />
         ));
