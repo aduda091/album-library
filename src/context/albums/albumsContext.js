@@ -13,7 +13,7 @@ export default (props) => {
     const [albums, setAlbums] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
-    const toggleFavorite = async albumId => {
+    const toggleFavorite = albumId => {
         const updatedAlbums = [...albums];
         const albumIndex = albums.findIndex(album => album.id === albumId);
         const newFavoriteStatus = !albums[albumIndex].favorite;
