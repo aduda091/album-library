@@ -1,6 +1,8 @@
 @import '../../assets/scss/mixins';
 @import '../../assets/scss/colors';
 
+$album-width: 3.375rem;
+
 .album-item {
     align-items: center;
     background: $white;
@@ -37,14 +39,39 @@
         
     }
 
+    .album-cover-container {
+
+        @include md {
+            align-self: center;
+            margin-right: 1.625rem;
+        }
+
+        &.has-star {
+            position: relative;
+
+            &::after {
+                background: url(../../assets/img/star.svg) no-repeat;
+                background-size: 1rem;
+                content: '';
+                height: 1rem;
+                position: absolute;
+                top: -.5rem;
+                width: 1rem;
+
+                @include md {
+                    left: $album-width - 0.5rem;
+                }
+            }
+        }
+    }
+
     .album-cover {
         max-width: 100%;
 
         @include md {
-            align-self: center;
             height: 100%;
-            margin-right: 1.625rem;
-            width: 3.375rem;
+            max-width: none;
+            width: $album-width;
         }
     }
 

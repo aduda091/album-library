@@ -25,7 +25,9 @@ function AlbumItem(props) {
     return (
         <div className="album-item">
             <div className="album-main-info">
-                <img src={props.imageUrl} alt={`${props.title} album cover.`} className="album-cover" />
+                <div className={`album-cover-container${ props.favorite ? ' has-star' : ''}`}>
+                    <img src={props.imageUrl} alt={`${props.title} album cover.`} className="album-cover" />
+                </div>
                 <div className="name-title-container">
                     <div className="album-title">{props.title}</div>
                     <div className="album-artist">{props.artistName}</div>
