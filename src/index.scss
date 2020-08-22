@@ -1,5 +1,5 @@
 @import './assets/scss/colors';
-@import './assets/scss/globals';
+@import './assets/scss/mixins';
 
 html,
 body {
@@ -10,4 +10,8 @@ body {
     line-height: 1;
     margin: 0;
     padding: 0;
+}
+
+body {
+    padding-top: rem($header-height);
 }
