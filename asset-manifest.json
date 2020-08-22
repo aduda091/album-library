@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/album-library/static/css/main.5b3905b8.chunk.css",
+    "main.js": "/album-library/static/js/main.93831379.chunk.js",
+    "main.js.map": "/album-library/static/js/main.93831379.chunk.js.map",
+    "runtime-main.js": "/album-library/static/js/runtime-main.6231fcb4.js",
+    "runtime-main.js.map": "/album-library/static/js/runtime-main.6231fcb4.js.map",
+    "static/js/2.4ed015c7.chunk.js": "/album-library/static/js/2.4ed015c7.chunk.js",
+    "static/js/2.4ed015c7.chunk.js.map": "/album-library/static/js/2.4ed015c7.chunk.js.map",
+    "index.html": "/album-library/index.html",
+    "precache-manifest.32b48caa6d00f70779d96e22369a8220.js": "/album-library/precache-manifest.32b48caa6d00f70779d96e22369a8220.js",
+    "service-worker.js": "/album-library/service-worker.js",
+    "static/css/main.5b3905b8.chunk.css.map": "/album-library/static/css/main.5b3905b8.chunk.css.map",
+    "static/js/2.4ed015c7.chunk.js.LICENSE.txt": "/album-library/static/js/2.4ed015c7.chunk.js.LICENSE.txt",
+    "static/media/style.scss": "/album-library/static/media/star.59ae6c95.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6231fcb4.js",
+    "static/js/2.4ed015c7.chunk.js",
+    "static/css/main.5b3905b8.chunk.css",
+    "static/js/main.93831379.chunk.js"
+  ]
+}
