@@ -35,4 +35,13 @@
     font-weight: 500;
     letter-spacing: -0.88px;
     margin: 0;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

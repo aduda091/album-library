@@ -14,8 +14,8 @@ import './style.scss';
 function Home() {
     const urlParams = useLocation().search;
     const albumsContext = useContext(AlbumsContext);
-    const {albums, setAlbums, searchTerm} = albumsContext;
-
+    const { albums, setAlbums, searchTerm } = albumsContext;
+    
     useEffect(() => {
         const url = resolveApiUrl(urlParams, searchTerm);
         axios
@@ -26,7 +26,7 @@ function Home() {
             .catch((err) => {
                 console.error(err);
             });
-    }, [searchTerm]);
+    }, [searchTerm, urlParams, setAlbums]);
 
     return (
         <div>
@@ -35,7 +35,7 @@ function Home() {
                 <AlbumContainer albums={albums} />
             ) : (
                 <div className="no-results">
-                    No results found for <span className="search-term">{searchTerm}</span>{' '}
+                    No results found for <span className="search-term">{searchTerm}</span>
                 </div>
             )}
         </div>
