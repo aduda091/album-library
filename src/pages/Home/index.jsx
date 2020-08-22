@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import { AlbumsContext } from '../../context/albums/albumsContext';
 
 import Header from '../../components/Header';
 import AlbumContainer from '../../components/AlbumContainer';
@@ -11,12 +13,8 @@ import './style.scss';
 
 function Home() {
     const urlParams = useLocation().search;
-    const [albums, setAlbums] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleSearchChange = term => {
-        setSearchTerm(term);
-    };
+    const albumsContext = useContext(AlbumsContext);
+    const {albums, setAlbums, searchTerm} = albumsContext;
 
     useEffect(() => {
         const url = resolveApiUrl(urlParams, searchTerm);
@@ -26,13 +24,13 @@ function Home() {
                 setAlbums(response.data);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
             });
-    }, [urlParams, searchTerm]);
+    }, [searchTerm]);
 
     return (
         <div>
-            <Header title="Album list" hasSearch onSearchChange={handleSearchChange} />
+            <Header title="Album list" hasSearch />
             {albums.length ? (
                 <AlbumContainer albums={albums} />
             ) : (

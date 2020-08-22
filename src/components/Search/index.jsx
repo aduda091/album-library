@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+
+import { AlbumsContext } from '../../context/albums/albumsContext';
 
 import './style.scss';
 
 function Search(props) {
+    const setSearchTerm = useContext(AlbumsContext).setSearchTerm;
     return (
         <div className="search-container">
             <form onSubmit={event => event.preventDefault()}>
-                <input type="text" placeholder="Search" onChange={ event => props.onSearchChange(event.target.value)} />
+                <input type="text" placeholder="Search" onChange={ event => setSearchTerm(event.target.value)} />
             </form>
         </div>
     );
