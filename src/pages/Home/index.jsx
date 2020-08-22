@@ -15,7 +15,7 @@ function Home() {
     const urlParams = useLocation().search;
     const albumsContext = useContext(AlbumsContext);
     const { albums, setAlbums, searchTerm } = albumsContext;
-
+    
     useEffect(() => {
         const url = resolveApiUrl(urlParams, searchTerm);
         axios
