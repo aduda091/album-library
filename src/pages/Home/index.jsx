@@ -1,32 +1,22 @@
 import React, { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { AlbumsContext } from '../../context/albums/albumsContext';
+import AlbumsContext from '../../context/albums/albumsContext';
 
 import Header from '../../components/Header';
 import AlbumContainer from '../../components/AlbumContainer';
-
-import axios from '../../axios';
-import { resolveApiUrl } from '../../utils';
 
 import './style.scss';
 
 function Home() {
     const urlParams = useLocation().search;
     const albumsContext = useContext(AlbumsContext);
-    const { albums, setAlbums, searchTerm } = albumsContext;
+    const { albums, searchTerm, fetchAlbums } = albumsContext;
     
     useEffect(() => {
-        const url = resolveApiUrl(urlParams, searchTerm);
-        axios
-            .get(url)
-            .then((response) => {
-                setAlbums(response.data);
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-    }, [searchTerm, urlParams, setAlbums]);
+        fetchAlbums(urlParams);
+        //eslint-disable-next-line
+    }, [searchTerm]);
 
     return (
         <div>

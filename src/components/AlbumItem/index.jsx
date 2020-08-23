@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import * as routes from '../../constants/routes';
 
-import { AlbumsContext } from '../../context/albums/albumsContext';
+import AlbumsContext from '../../context/albums/albumsContext';
 
 import './style.scss';
 
