@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import AlbumContainer from "../../components/AlbumContainer";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
-import "./style.scss";
+import classNames from  "./index.module.scss";
 
 function Home() {
     const urlParams = useLocation().search;
@@ -25,9 +25,9 @@ function Home() {
         return albums.length ? (
             <AlbumContainer albums={albums} />
         ) : (
-            <div className="no-results">
+            <div className={classNames.noResults}>
                 No results found for{" "}
-                <span className="search-term">{searchTerm}</span>
+                <span className={classNames.searchTerm}>{searchTerm}</span>
             </div>
         );
     };

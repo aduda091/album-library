@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./style.scss";
 import AlbumItem from "../AlbumItem";
+
+import classNames from "./index.module.scss";
 
 function AlbumContainer(props) {
     const renderAlbums = () => {
@@ -14,7 +15,7 @@ function AlbumContainer(props) {
             />
         ));
     };
-    return <div className="album-container">{renderAlbums()}</div>;
+    return <div className={classNames.albumContainer}>{renderAlbums()}</div>;
 }
 
 AlbumContainer.propTypes = {
