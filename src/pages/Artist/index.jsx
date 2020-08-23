@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 import AlbumsContext from '../../context/albums/albumsContext';
@@ -9,7 +9,15 @@ import AlbumContainer from '../../components/AlbumContainer';
 function Artist() {
     const { artistId } = useParams();
     const albumsContext = useContext(AlbumsContext);
-    const { albums } = albumsContext;
+    const { albums, fetchAlbums } = albumsContext;
+
+    useEffect(() => {
+        if (albums.length === 0) {
+            fetchAlbums();
+        }
+        //eslint-disable-next-line
+    }, [])
+    
 
     const currentArtistAlbums = albums.filter((album) => album.artistId === Number(artistId));
     
