@@ -6,13 +6,13 @@ import Search from "../Search";
 
 import * as routes from "../../constants/routes";
 
-import "./style.scss";
+import classNames from "./index.module.scss";
 
 function Header(props) {
     return (
-        <div className="header">
-            <div className="inner-container">
-                <h1 className="page-title">
+        <div className={classNames.header}>
+            <div className={classNames.innerContainer}>
+                <h1 className={classNames.pageTitle}>
                     <Link to={routes.HOME} title="Home">
                         {props.title}
                     </Link>

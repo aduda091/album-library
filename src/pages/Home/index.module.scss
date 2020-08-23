@@ -1,11 +1,14 @@
 @import "../../assets/scss/mixins";
-@import "../../assets/scss/colors";
 
-.album-container {
+.noResults {
     margin: 3.25rem auto;
     width: 75%;
 
     @include md {
         max-width: 1080px;
     }
+}
+
+.searchTerm {
+    font-weight: bold;
 }
