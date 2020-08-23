@@ -6,7 +6,7 @@ import * as routes from "../../constants/routes";
 
 import AlbumsContext from "../../context/albums/albumsContext";
 
-import "./style.scss";
+import classNames from "./index.module.scss";
 
 function AlbumItem(props) {
     const toggleFavorite = useContext(AlbumsContext).toggleFavorite;
@@ -17,55 +17,56 @@ function AlbumItem(props) {
 
     const resolveFavoriteCta = props.favorite ? (
         <button
-            className="remove-favorite"
+            className={classNames.removeFavorite}
             onClick={() => toggleFavorite(props.id)}
         >
             Remove favorite
         </button>
     ) : (
         <button
-            className="add-favorite"
+            className={classNames.addFavorite}
             onClick={() => toggleFavorite(props.id)}
         >
             Mark as favorite
         </button>
     );
 
+    const albumCoverContainerClasses = [classNames.albumCoverContainer];
+    props.favorite && albumCoverContainerClasses.push(classNames.hasStar);
+
     return (
-        <div className="album-item">
-            <div className="album-main-info">
+        <div className={classNames.albumItem}>
+            <div className={classNames.albumMainInfo}>
                 <div
-                    className={`album-cover-container${
-                        props.favorite ? " has-star" : ""
-                    }`}
+                    className={albumCoverContainerClasses.join(" ")}
                 >
                     <img
                         src={props.imageUrl}
                         alt={`${props.title} album cover.`}
-                        className="album-cover"
+                        className={classNames.albumCover}
                     />
                 </div>
-                <div className="name-title-container">
-                    <div className="album-title">{props.title}</div>
+                <div className={classNames.nameTitleContainer}>
+                    <div className={classNames.albumTitle}>{props.title}</div>
 
                     <Link
                         to={`${routes.ARTIST_ROOT}/${props.artistId}`}
                         title={`View all albums from ${props.artistName}`}
-                        className="album-artist"
+                        className={classNames.albumArtist}
                     >
                         {props.artistName}
                     </Link>
                 </div>
             </div>
 
-            <div className="year-info">
-                <span className="year-label">Released: </span>
-                <span className="year-value">{getYear()}</span>
+            <div className={classNames.yearInfo}>
+                <span className={classNames.yearLabel}>Released: </span>
+                <span className={classNames.yearValue}>{getYear()}</span>
             </div>
 
-            <div className="price">{props.price}</div>
+            <div className={classNames.price}>{props.price}</div>
 
-            <div className="favorite-container">{resolveFavoriteCta}</div>
+            <div className={classNames.favoriteContainer}>{resolveFavoriteCta}</div>
         </div>
     );
 }

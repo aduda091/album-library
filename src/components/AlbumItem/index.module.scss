@@ -3,7 +3,7 @@
 
 $album-width: 3.375rem;
 
-.album-item {
+.albumItem {
     align-items: center;
     background: $white;
     box-shadow: 0 1px 3px 0 $whiteish;
@@ -28,7 +28,7 @@ $album-width: 3.375rem;
         padding-right: 0;
     }
 
-    .album-main-info {
+    .albumMainInfo {
         text-align: center;
 
         @include md {
@@ -38,13 +38,13 @@ $album-width: 3.375rem;
         }
     }
 
-    .album-cover-container {
+    .albumCoverContainer {
         @include md {
             align-self: center;
             margin-right: 1.625rem;
         }
 
-        &.has-star {
+        &.hasStar {
             position: relative;
 
             &::after {
@@ -63,7 +63,7 @@ $album-width: 3.375rem;
         }
     }
 
-    .album-cover {
+    .albumCover {
         max-width: 100%;
 
         @include md {
@@ -73,7 +73,7 @@ $album-width: 3.375rem;
         }
     }
 
-    .album-title {
+    .albumTitle {
         color: $blackish;
         font-size: 1.125rem;
         font-weight: 500;
@@ -86,7 +86,7 @@ $album-width: 3.375rem;
         }
     }
 
-    .album-artist {
+    .albumArtist {
         color: $lightgrey;
         display: block;
         font-size: 0.75rem;
@@ -100,13 +100,13 @@ $album-width: 3.375rem;
         }
     }
 
-    .year-info {
+    .yearInfo {
         display: inline-block;
         font-size: 0.875rem;
         flex-basis: 16.6%;
     }
 
-    .year-label {
+    .yearLabel {
         color: $lightgrey;
         font-size: 0.875rem;
         letter-spacing: -0.51px;
@@ -120,7 +120,7 @@ $album-width: 3.375rem;
         text-align: center;
     }
 
-    .favorite-container {
+    .favoriteContainer {
         text-align: center;
         flex-basis: 16.6%;
 
@@ -132,7 +132,7 @@ $album-width: 3.375rem;
             padding: 0.438rem 0.875rem;
         }
 
-        .add-favorite {
+        .addFavorite {
             background-color: $aqua;
             border-radius: 3px;
             color: $white;
@@ -145,7 +145,7 @@ $album-width: 3.375rem;
             }
         }
 
-        .remove-favorite {
+        .removeFavorite {
             background: none;
             color: $aqua;
             text-align: center;
