@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { AlbumsContext } from '../../context/albums/albumsContext';
+import AlbumsContext from '../../context/albums/albumsContext';
 
 import './style.scss';
 

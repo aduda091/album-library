@@ -4,17 +4,17 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
-import AlbumsProvider from './context/albums/albumsContext';
+import AlbumsState from './context/albums/AlbumsState';
 
 import './index.scss';
 
 ReactDOM.render(
     <React.StrictMode>
-        <AlbumsProvider>
+        <AlbumsState>
             <BrowserRouter>
                 <App />
             </BrowserRouter>
-        </AlbumsProvider>
+        </AlbumsState>
     </React.StrictMode>,
     document.getElementById('root')
 );
