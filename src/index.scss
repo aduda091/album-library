@@ -1,11 +1,11 @@
-@import './assets/scss/colors';
-@import './assets/scss/mixins';
+@import "./assets/scss/colors";
+@import "./assets/scss/mixins";
 
 html,
 body {
     background: $muted-white;
     box-sizing: border-box;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: $base-font-size;
     line-height: 1;
     margin: 0;

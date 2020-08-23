@@ -1,12 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import './style.scss';
+import "./style.scss";
 
 function LoadingSpinner() {
-    return (
-        <div class="loader">Loading...</div>
-    )
+    return <div class="loader">Loading...</div>;
 }
 
-export default LoadingSpinner
-
+export default LoadingSpinner;

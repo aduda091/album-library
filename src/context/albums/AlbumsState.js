@@ -1,17 +1,17 @@
-import React, { useReducer } from 'react';
+import React, { useReducer } from "react";
 
-import AlbumsContext from './albumsContext';
-import AlbumsReducer from './albumsReducer';
-import axios from '../../axios';
-import * as api from '../../constants/api';
-import { resolveApiUrl } from '../../utils';
+import AlbumsContext from "./albumsContext";
+import AlbumsReducer from "./albumsReducer";
+import axios from "../../axios";
+import * as api from "../../constants/api";
+import { resolveApiUrl } from "../../utils";
 
-import * as types from '../types';
+import * as types from "../types";
 
 const AlbumsState = (props) => {
     const initialState = {
         albums: [],
-        searchTerm: '',
+        searchTerm: "",
         loading: false,
     };
 
@@ -30,25 +30,30 @@ const AlbumsState = (props) => {
     };
 
     // Set search
-    const setSearchTerm = (term) => dispatch({ type: types.SET_SEARCH_TERM, payload: term });
+    const setSearchTerm = (term) =>
+        dispatch({ type: types.SET_SEARCH_TERM, payload: term });
 
     // Toggle favorite
-    const toggleFavorite = albumId => {
+    const toggleFavorite = (albumId) => {
         const updatedAlbums = [...state.albums];
-        const albumIndex = state.albums.findIndex(album => album.id === albumId);
+        const albumIndex = state.albums.findIndex(
+            (album) => album.id === albumId,
+        );
         const newFavoriteStatus = !state.albums[albumIndex].favorite;
 
         const url = `${api.FAVORITE}/${albumId}`;
-        axios.patch(url, { favorite: newFavoriteStatus }).then(res => {
-            updatedAlbums[albumIndex].favorite = res.data.favorite;
-            dispatch({
-                type: types.SET_ALBUMS,
-                payload: updatedAlbums,
+        axios
+            .patch(url, { favorite: newFavoriteStatus })
+            .then((res) => {
+                updatedAlbums[albumIndex].favorite = res.data.favorite;
+                dispatch({
+                    type: types.SET_ALBUMS,
+                    payload: updatedAlbums,
+                });
+            })
+            .catch((err) => {
+                console.error(err);
             });
-        }).catch(err => {
-            console.error(err);
-        });
-            
     };
 
     // Set loading
@@ -62,7 +67,7 @@ const AlbumsState = (props) => {
                 loading: state.loading,
                 fetchAlbums,
                 setSearchTerm,
-                toggleFavorite
+                toggleFavorite,
             }}
         >
             {props.children}

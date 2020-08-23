@@ -1,12 +1,12 @@
-import './utils/polyfills';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import "./utils/polyfills";
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
-import App from './App';
-import AlbumsState from './context/albums/AlbumsState';
+import App from "./App";
+import AlbumsState from "./context/albums/AlbumsState";
 
-import './index.scss';
+import "./index.scss";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -16,5 +16,5 @@ ReactDOM.render(
             </BrowserRouter>
         </AlbumsState>
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById("root"),
 );

@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-import Search from '../Search';
+import Search from "../Search";
 
-import * as routes from '../../constants/routes';
+import * as routes from "../../constants/routes";
 
-import './style.scss';
+import "./style.scss";
 
 function Header(props) {
     return (
@@ -17,7 +17,9 @@ function Header(props) {
                         {props.title}
                     </Link>
                 </h1>
-                {props.hasSearch ? <Search onSearchChange={props.onSearchChange} /> : null}
+                {props.hasSearch ? (
+                    <Search onSearchChange={props.onSearchChange} />
+                ) : null}
             </div>
         </div>
     );
@@ -26,7 +28,7 @@ function Header(props) {
 Header.propTypes = {
     title: PropTypes.string.isRequired,
     hasSearch: PropTypes.bool,
-    onSearchChange: PropTypes.func
+    onSearchChange: PropTypes.func,
 };
 
 export default Header;

@@ -1,23 +1,24 @@
-import * as types from '../types';
+import * as types from "../types";
 
 export default (state, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case types.SET_ALBUMS:
             return {
                 ...state,
                 albums: action.payload,
-                loading: false
-            }
+                loading: false,
+            };
         case types.SET_LOADING:
             return {
                 ...state,
-                loading: true
-            }
+                loading: true,
+            };
         case types.SET_SEARCH_TERM:
             return {
                 ...state,
-                searchTerm: action.payload
-            }
-        default: return state;
+                searchTerm: action.payload,
+            };
+        default:
+            return state;
     }
-}
+};
