@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import './style.scss';
-import AlbumItem from '../AlbumItem';
+import "./style.scss";
+import AlbumItem from "../AlbumItem";
 
 function AlbumContainer(props) {
     const renderAlbums = () => {
@@ -18,7 +18,7 @@ function AlbumContainer(props) {
 }
 
 AlbumContainer.propTypes = {
-    albums: PropTypes.array
+    albums: PropTypes.array,
 };
 
 export default AlbumContainer;

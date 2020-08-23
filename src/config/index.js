@@ -1,8 +1,8 @@
 export default {
     development: {
-        baseURL: 'http://localhost:3004'
+        baseURL: "http://localhost:3004",
     },
     production: {
-        baseURL: 'https://albums-mock-backend.glitch.me'
-    }
+        baseURL: "https://albums-mock-backend.glitch.me",
+    },
 };

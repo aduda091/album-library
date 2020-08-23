@@ -1,11 +1,11 @@
-import React, { useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 
-import AlbumsContext from '../../context/albums/albumsContext';
+import AlbumsContext from "../../context/albums/albumsContext";
 
-import Header from '../../components/Header';
-import AlbumContainer from '../../components/AlbumContainer';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import Header from "../../components/Header";
+import AlbumContainer from "../../components/AlbumContainer";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 function Artist() {
     const { artistId } = useParams();
@@ -19,8 +19,9 @@ function Artist() {
         //eslint-disable-next-line
     }, []);
 
-
-    const currentArtistAlbums = albums.filter((album) => album.artistId === Number(artistId));
+    const currentArtistAlbums = albums.filter(
+        (album) => album.artistId === Number(artistId),
+    );
 
     const resolveContent = () => {
         if (loading) return <LoadingSpinner />;
@@ -38,7 +39,8 @@ function Artist() {
                 <div>
                     <Header title="Unknown artist" />
                     <div className="no-results">
-                        No results found for artist with ID of <strong>{artistId}</strong>
+                        No results found for artist with ID of{" "}
+                        <strong>{artistId}</strong>
                     </div>
                 </div>
             );
@@ -46,8 +48,6 @@ function Artist() {
     };
 
     return resolveContent();
-
-    
 }
 
 export default Artist;

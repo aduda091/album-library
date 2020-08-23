@@ -1,5 +1,5 @@
-@import '../../assets/scss/mixins';
-@import '../../assets/scss/colors';
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/colors";
 
 $album-width: 3.375rem;
 
@@ -36,11 +36,9 @@ $album-width: 3.375rem;
             flex-basis: 50%;
             text-align: left;
         }
-        
     }
 
     .album-cover-container {
-
         @include md {
             align-self: center;
             margin-right: 1.625rem;
@@ -52,10 +50,10 @@ $album-width: 3.375rem;
             &::after {
                 background: url(../../assets/img/star.svg) no-repeat;
                 background-size: 1rem;
-                content: '';
+                content: "";
                 height: 1rem;
                 position: absolute;
-                top: -.5rem;
+                top: -0.5rem;
                 width: 1rem;
 
                 @include md {
@@ -107,7 +105,7 @@ $album-width: 3.375rem;
         font-size: 0.875rem;
         flex-basis: 16.6%;
     }
-    
+
     .year-label {
         color: $lightgrey;
         font-size: 0.875rem;
@@ -129,7 +127,7 @@ $album-width: 3.375rem;
         button {
             border: none;
             cursor: pointer;
-            font-family:"Work Sans", sans-serif;
+            font-family: "Work Sans", sans-serif;
             font-size: 0.625rem;
             padding: 0.438rem 0.875rem;
         }

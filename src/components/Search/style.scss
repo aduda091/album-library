@@ -1,14 +1,13 @@
-@import '../../assets/scss/mixins';
-@import '../../assets/scss/colors';
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/colors";
 
 .search-container {
-
     position: relative;
 
     &::after {
-        background: url('../../assets/img/search.svg') no-repeat 100%;
-        content: '';
-        display: block;        
+        background: url("../../assets/img/search.svg") no-repeat 100%;
+        content: "";
+        display: block;
         height: rem(15px);
         pointer-events: none;
         position: absolute;

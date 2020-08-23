@@ -1,10 +1,10 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Home from './pages/Home';
-import Artist from './pages/Artist';
+import Home from "./pages/Home";
+import Artist from "./pages/Artist";
 
-import * as routes from './constants/routes';
+import * as routes from "./constants/routes";
 
 function App() {
     return (
